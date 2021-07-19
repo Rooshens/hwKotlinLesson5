@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.appcompat.widget.AppCompatButton
 import qr.a.rooshen.hwkotlinlesson5.databinding.FragmentAuthorizationBinding
+import kotlin.system.exitProcess
 
 
 class AuthorizationFragment : Fragment() {
@@ -30,4 +31,10 @@ class AuthorizationFragment : Fragment() {
             (activity as? MainNavigation)?.openBasketFragment(binding.etPersonName.text.toString())
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        (activity as? MainNavigation)?.closeApp()
+    }
+
 }

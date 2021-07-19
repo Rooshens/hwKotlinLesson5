@@ -13,11 +13,12 @@ class MainActivity : AppCompatActivity(), MainNavigation {
         openAuthorizationFragment()
     }
 
+
     override fun openAuthorizationFragment() {
         supportFragmentManager
             .beginTransaction()
-            .addToBackStack("AuthorizationFragment")
             .add(R.id.clRootActivity, AuthorizationFragment())
+            .addToBackStack("AuthorizationFragment")
             .commit()
     }
 
@@ -25,8 +26,13 @@ class MainActivity : AppCompatActivity(), MainNavigation {
     override fun openBasketFragment(phoneNumber: String) {
         supportFragmentManager
             .beginTransaction()
-            .addToBackStack("BasketFragment")
             .replace(R.id.clRootActivity, BasketFragment.newInstance(phoneNumber))
+            .addToBackStack("BasketFragment")
             .commit()
     }
+
+    override fun closeApp() {
+        finish()
+    }
+
 }
